@@ -34,12 +34,21 @@ var AppComponent = (function () {
                 "isRacing": false
             }];
     }
+    AppComponent.prototype.totalCost = function () {
+        var sum = 0;
+        for (var _i = 0, _a = this.races; _i < _a.length; _i++) {
+            var race = _a[_i];
+            if (race.isRacing)
+                sum += race.entryFee;
+        }
+        return sum;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'racing-app',
-        template: "\n    <h1>{{heading}}</h1>\n  <ul>\n    <li *ngFor=\"let race of races\">\n      <h2>{{race.name}}</h2>\n      <p>{{race.date}}</p>\n      <p>{{race.about}}</p>\n<button *ngIf=\"!race.isRacing\" >Enter Race</button>\n    <h3 *ngIf=\"race.isRacing\" >Already Racing</h3>\n    </li>\n  </ul>\n  "
+        template: "\n    <h1>{{heading}}</h1>\n  <ul>\n    <li *ngFor=\"let race of races\">\n      <h2>{{race.name}} {{race.entryFee | currency:'USD':true }}</h2>\n      <p>{{race.date | date:'MMM d, y, h:mm a'}}</p>\n      <p>{{race.about}}</p>\n      <button *ngIf=\"!race.isRacing\" >Enter Race</button>\n      <h3 *ngIf=\"race.isRacing\">Already Racing</h3>\n    </li>\n  </ul>\n  <h2>Total cost: {{totalCost() | currency:'USD':true}}</h2>\n  "
     })
 ], AppComponent);
 var AppModule = (function () {

@@ -8,13 +8,14 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
     <h1>{{heading}}</h1>
   <ul>
     <li *ngFor="let race of races">
-      <h2>{{race.name}}</h2>
-      <p>{{race.date}}</p>
+      <h2>{{race.name}} {{race.entryFee | currency:'USD':true }}</h2>
+      <p>{{race.date | date:'MMM d, y, h:mm a'}}</p>
       <p>{{race.about}}</p>
-<button *ngIf="!race.isRacing" >Enter Race</button>
-    <h3 *ngIf="race.isRacing" >Already Racing</h3>
+      <button *ngIf="!race.isRacing" >Enter Race</button>
+      <h3 *ngIf="race.isRacing">Already Racing</h3>
     </li>
   </ul>
+  <h2>Total cost: {{totalCost() | currency:'USD':true}}</h2>
   `
 })
 class AppComponent {
@@ -41,6 +42,15 @@ class AppComponent {
         "entryFee": 4300,
         "isRacing": false
     }];
+
+    totalCost() {
+        let sum = 0;
+        for (let race of this.races) {
+            if (race.isRacing)
+                sum += race.entryFee;
+        }
+        return sum;
+    }
 }
 
 @NgModule({
