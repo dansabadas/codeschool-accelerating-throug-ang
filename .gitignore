@@ -2,3 +2,5 @@ AcceleratingThroughAngular/node_modules/
 packages/
 AcceleratingThroughAngular/bin/
 AcceleratingThroughAngular/obj/
+/AcceleratingThroughAngular/npm-debug.log
+/.vs/config/applicationhost.config
