@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'my-app',
-    templateUrl: 'app.component.html',
-    styleUrls: [ 'app.component.css'],
-    moduleId: module.id
+    selector: 'racing-app',
+    template: `
+    <h1>{{heading}}</h1>
+    <my-races></my-races>
+  `
 })
-export class AppComponent { name = 'Angular 2'; }
+export class AppComponent {
+    heading = "Ultra Racing Schedule"
+}
