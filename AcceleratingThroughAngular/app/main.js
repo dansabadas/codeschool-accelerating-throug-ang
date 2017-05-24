@@ -8,49 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.heading = "Ultra Racing Schedule";
-        this.races = [{
-                "id": 1,
-                "name": "Daytona Thunderdome",
-                "date": new Date('2512-01-04T14:00:00'),
-                "about": "Race through the ruins of an ancient Florida battle arena.",
-                "entryFee": 3200,
-                "isRacing": false
-            }, {
-                "id": 2,
-                "name": "San Francisco Ruins",
-                "date": new Date('2512-07-03T20:00:00'),
-                "about": "Drift down the streets of a city almost sunk under the ocean.",
-                "entryFee": 4700,
-                "isRacing": true
-            }, {
-                "id": 3,
-                "name": "New York City Skyline",
-                "date": new Date('2512-07-12T21:00:00'),
-                "about": "Fly between buildings in the electronic sky.",
-                "entryFee": 4300,
-                "isRacing": false
-            }];
-    }
-    AppComponent.prototype.totalCost = function () {
-        var sum = 0;
-        for (var _i = 0, _a = this.races; _i < _a.length; _i++) {
-            var race = _a[_i];
-            if (race.isRacing)
-                sum += race.entryFee;
-        }
-        return sum;
-    };
-    return AppComponent;
-}());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'racing-app',
-        template: "\n    <h1>{{heading}}</h1>\n  <ul>\n    <li *ngFor=\"let race of races\">\n      <h2>{{race.name}} {{race.entryFee | currency:'USD':true }}</h2>\n      <p>{{race.date | date:'MMM d, y, h:mm a'}}</p>\n      <p>{{race.about}}</p>\n      <button *ngIf=\"!race.isRacing\" >Enter Race</button>\n      <h3 *ngIf=\"race.isRacing\">Already Racing</h3>\n    </li>\n  </ul>\n  <h2>Total cost: {{totalCost() | currency:'USD':true}}</h2>\n  "
-    })
-], AppComponent);
+var app_component_1 = require("./app.component");
+var races_component_1 = require("./races.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -59,8 +18,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule],
-        declarations: [AppComponent],
-        bootstrap: [AppComponent]
+        declarations: [app_component_1.AppComponent, races_component_1.RacesComponent],
+        bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 platform_browser_dynamic_1.platformBrowserDynamic()

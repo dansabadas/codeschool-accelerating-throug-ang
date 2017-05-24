@@ -83,6 +83,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\races.component.css" />
+    <Content Include="app\races.component.html" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="styles.css" />
@@ -117,6 +119,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\mocks.ts" />
+    <TypeScriptCompile Include="app\race.ts" />
     <TypeScriptCompile Include="app\races.component.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
