@@ -83,6 +83,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\daytona_thunderdome.jpg" />
+    <Content Include="images\new_york_city_skyline.jpg" />
+    <Content Include="images\san_francisco_ruins.jpg" />
     <Content Include="app\races.component.css" />
     <Content Include="app\races.component.html" />
     <Content Include="Global.asax" />
