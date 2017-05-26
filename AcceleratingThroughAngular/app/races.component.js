@@ -27,6 +27,15 @@ var RacesComponent = (function () {
     RacesComponent.prototype.cashLeft = function () {
         return this.cash - this.totalCost();
     };
+    RacesComponent.prototype.cancelRace = function (race) {
+        race.isRacing = false;
+    };
+    RacesComponent.prototype.enterRace = function (race) {
+        if (this.cashLeft() > race.entryFee)
+            race.isRacing = true;
+        else
+            alert("You don't have enough cash");
+    };
     return RacesComponent;
 }());
 RacesComponent = __decorate([
