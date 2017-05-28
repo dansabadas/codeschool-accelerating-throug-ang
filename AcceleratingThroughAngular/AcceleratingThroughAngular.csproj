@@ -123,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\mocks.ts" />
+    <TypeScriptCompile Include="app\race.service.ts" />
     <TypeScriptCompile Include="app\race.ts" />
     <TypeScriptCompile Include="app\races.component.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
